@@ -6,14 +6,15 @@ x1=rgb2gray(x); % Convert RGB image to Grayscale
 figure,imhist(x1) %plot the histogram of the image 
 
 %%--------------------------%%
-%% Convert image to black and white image by thresholding %%
+% Convert image to black and white image by thresholding
 
 y=x1<128; %Threshold=128. Decide it by using the histogram or trial and error method.
 figure, imshow(y) 
 
 %%-------------------------%%
-%% Remove noise and Fill the Holes %%
-%% Filling image regions and holes.
+% Remove noise and Fill the Holes 
+% Filling image regions and holes
+
 t=imfill(y,'holes'); % fill the holes with white
 figure, imshow(t) %Figure5
 %% FILTERING (2-D median filtering.)
@@ -21,7 +22,7 @@ imFiltered = medfilt2(t); % medfilt2 is using to remove salt and pepper noise in
 figure,imshow(imFiltered) %Figure6
 
 %%-------------------------%%
-%% Labeling                %%
+% Labeling              
 [L,num]=bwlabel(imFiltered,8); % returns in NUM the number of connected objects found in imFiltered.
 %8 is the number of connected objects, 
 %L is the number of labels
@@ -29,7 +30,7 @@ figure,imshow(imFiltered) %Figure6
 disp(['There are ', num2str(num), ' coins.'])
 
 %%---------------------------%%
-%% Finding Objects           %%
+% Finding Objects          
 for i=1:1:num
 [r,c]=find(L==i); %this line finds the objects and their rows and columns
 rmin=min(r);rmax= max(r); %minimum and maximum row values of objects
@@ -43,7 +44,8 @@ total=0;
 sort1=sort(area);%sorts the value of areas from smaller to bigger
 
 %%------------------------------%%
-%% Finding Values of each Coins %%
+% Finding Values of each Coins 
+
 for j=1:1:num
 if sort1(j)<=3000
         c1=c1+1; % 5 Kuruş
