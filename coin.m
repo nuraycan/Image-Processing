@@ -1,5 +1,5 @@
-%% Coin Counting Image Processing Project
-%% Written by: Nuray Can      %%
+% Coin Counting Image Processing Project
+% Written by: Nuray Can
 
 x=imread('para.jpg'); % Read the image
 x1=rgb2gray(x); % Convert RGB image to Grayscale
