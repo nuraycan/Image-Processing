@@ -1,4 +1,5 @@
 %% Coin Counting Image Processing Project %%
+
 %% Written by: Nuray Can      %%
 
 x=imread('para.jpg'); % Read the image
