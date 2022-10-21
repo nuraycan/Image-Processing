@@ -17,7 +17,9 @@ figure, imshow(y)
 
 t=imfill(y,'holes'); % fill the holes with white
 figure, imshow(t) %Figure5
-%% FILTERING (2-D median filtering.)
+
+% FILTERING (2-D median filtering)
+
 imFiltered = medfilt2(t); % medfilt2 is using to remove salt and pepper noise in image t. 
 figure,imshow(imFiltered) %Figure6
 
